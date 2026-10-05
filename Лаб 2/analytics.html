@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Shop - Аналітика</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <img src="img/coffee_logo.png" alt="Логотип Coffee Shop" class="logo">
+            <div>
+                <h1>Аналітика продажів</h1>
+                <p class="tagline">Звіти з виручки, рейтинг персоналу та популярність напоїв за вересень 2026</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="orders.html">Оформлення замовлень</a></li>
+                <li><a href="customers.html">Клієнти та картки</a></li>
+                <li><a href="baristas.html">Співробітники</a></li>
+                <li><a href="analytics.html" class="active">Аналітика</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <form id="report-form" class="toolbar">
+                <label for="query-select">Звіт:</label>
+                <select id="query-select">
+                    <option value="rollup">1. Виручка за філіалами та напоями (ROLLUP)</option>
+                    <option value="rank">2. Рейтинг бариста за сумою продажів (RANK)</option>
+                    <option value="cube">3. Кількість проданих напоїв (CUBE)</option>
+                </select>
+                <button type="button" id="btn-run-query" class="btn">Сформувати</button>
+            </form>
+            <p class="hint">Звіти побудовано за тими самими запитами, що й у курсовому WinForms-застосунку CoffeeShopApp.</p>
+
+            <section id="section-rollup" class="report">
+                <h3>Звіт 1. Виручка за філіалами та напоями (ROLLUP)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Філіал</th>
+                            <th>Напій</th>
+                            <th class="center">Продано порцій</th>
+                            <th class="num">Виручка, грн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Центральний</td>
+                            <td>Капучино</td>
+                            <td class="center">142</td>
+                            <td class="num">7 810.00</td>
+                        </tr>
+                        <tr>
+                            <td>Центральний</td>
+                            <td>Лате</td>
+                            <td class="center">98</td>
+                            <td class="num">5 880.00</td>
+                        </tr>
+                        <tr class="subtotal">
+                            <td>Центральний (разом)</td>
+                            <td>Усі напої</td>
+                            <td class="center">240</td>
+                            <td class="num">13 690.00</td>
+                        </tr>
+                        <tr>
+                            <td>Кав'ярня на Подолі</td>
+                            <td>Еспресо</td>
+                            <td class="center">110</td>
+                            <td class="num">3 850.00</td>
+                        </tr>
+                        <tr>
+                            <td>Кав'ярня на Подолі</td>
+                            <td>Капучино</td>
+                            <td class="center">85</td>
+                            <td class="num">4 675.00</td>
+                        </tr>
+                        <tr class="subtotal">
+                            <td>Кав'ярня на Подолі (разом)</td>
+                            <td>Усі напої</td>
+                            <td class="center">195</td>
+                            <td class="num">8 525.00</td>
+                        </tr>
+                        <tr>
+                            <td>Студентський куточок</td>
+                            <td>Американо</td>
+                            <td class="center">85</td>
+                            <td class="num">3 400.00</td>
+                        </tr>
+                        <tr>
+                            <td>Студентський куточок</td>
+                            <td>Капучино</td>
+                            <td class="center">32</td>
+                            <td class="num">1 760.00</td>
+                        </tr>
+                        <tr class="subtotal">
+                            <td>Студентський куточок (разом)</td>
+                            <td>Усі напої</td>
+                            <td class="center">117</td>
+                            <td class="num">5 160.00</td>
+                        </tr>
+                        <tr class="grand-total">
+                            <td>Усього по мережі</td>
+                            <td>Усі напої</td>
+                            <td class="center">552</td>
+                            <td class="num">27 375.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="section-rank" class="report">
+                <h3>Звіт 2. Рейтинг бариста за сумою продажів (RANK, DENSE_RANK)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Бариста</th>
+                            <th>Філіал</th>
+                            <th class="num">Сума продажів, грн</th>
+                            <th class="center">Місце в мережі</th>
+                            <th class="center">Місце у філіалі</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Андрій Мельник</b></td>
+                            <td>Центральний</td>
+                            <td class="num">9 120.00</td>
+                            <td class="center"><b>1</b></td>
+                            <td class="center">1</td>
+                        </tr>
+                        <tr>
+                            <td><b>Олена Бойко</b></td>
+                            <td>Кав'ярня на Подолі</td>
+                            <td class="num">5 640.00</td>
+                            <td class="center"><b>2</b></td>
+                            <td class="center">1</td>
+                        </tr>
+                        <tr>
+                            <td><b>Сергій Ткаченко</b></td>
+                            <td>Студентський куточок</td>
+                            <td class="num">5 160.00</td>
+                            <td class="center"><b>3</b></td>
+                            <td class="center">1</td>
+                        </tr>
+                        <tr>
+                            <td><b>Юлія Кравчук</b></td>
+                            <td>Центральний</td>
+                            <td class="num">4 570.00</td>
+                            <td class="center"><b>4</b></td>
+                            <td class="center">2</td>
+                        </tr>
+                        <tr>
+                            <td><b>Богдан Лисенко</b></td>
+                            <td>Кав'ярня на Подолі</td>
+                            <td class="num">2 885.00</td>
+                            <td class="center"><b>5</b></td>
+                            <td class="center">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="section-cube" class="report">
+                <h3>Звіт 3. Кількість проданих напоїв за всіма комбінаціями (CUBE)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Філіал</th>
+                            <th>Напій</th>
+                            <th class="center">Продано, шт.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Центральний</td><td>Капучино</td><td class="center">142</td></tr>
+                        <tr><td>Центральний</td><td>Лате</td><td class="center">98</td></tr>
+                        <tr class="subtotal"><td>Центральний</td><td>Усі напої</td><td class="center">240</td></tr>
+                        <tr><td>Кав'ярня на Подолі</td><td>Еспресо</td><td class="center">110</td></tr>
+                        <tr><td>Кав'ярня на Подолі</td><td>Капучино</td><td class="center">85</td></tr>
+                        <tr class="subtotal"><td>Кав'ярня на Подолі</td><td>Усі напої</td><td class="center">195</td></tr>
+                        <tr><td>Студентський куточок</td><td>Американо</td><td class="center">85</td></tr>
+                        <tr><td>Студентський куточок</td><td>Капучино</td><td class="center">32</td></tr>
+                        <tr class="subtotal"><td>Студентський куточок</td><td>Усі напої</td><td class="center">117</td></tr>
+                        <tr class="cube-total"><td>Усі філіали</td><td>Американо</td><td class="center">85</td></tr>
+                        <tr class="cube-total"><td>Усі філіали</td><td>Еспресо</td><td class="center">110</td></tr>
+                        <tr class="cube-total"><td>Усі філіали</td><td>Капучино</td><td class="center">259</td></tr>
+                        <tr class="cube-total"><td>Усі філіали</td><td>Лате</td><td class="center">98</td></tr>
+                        <tr class="grand-total"><td>Усі філіали</td><td>Усі напої</td><td class="center">552</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p><small>&copy; 2026 «Coffee Shop». Аналітичні звіти.</small></p>
+        </footer>
+    </div>
+</body>
+</html>

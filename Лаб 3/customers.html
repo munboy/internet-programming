@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Shop - Клієнти та картки</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="customers.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <img src="img/coffee_logo.png" alt="Логотип Coffee Shop" class="logo">
+            <div>
+                <h1>Клієнти та картки лояльності</h1>
+                <p class="tagline">База постійних гостей і бонусна програма мережі</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="orders.html">Оформлення замовлень</a></li>
+                <li><a href="customers.html" class="active">Клієнти та картки</a></li>
+                <li><a href="baristas.html">Співробітники</a></li>
+                <li><a href="analytics.html">Аналітика</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <form id="search-form" class="toolbar">
+                <label for="customer-search">Пошук клієнта:</label>
+                <input type="text" id="customer-search" placeholder="Ім'я, телефон або пошта">
+                <p class="toolbar-note">10% від кожної покупки повертається бонусами</p>
+            </form>
+
+            <section>
+                <h2>Зареєстровані клієнти</h2>
+                <p class="hint" id="customers-counter"></p>
+                <table class="data-table" id="customers-table">
+                    <caption>Список клієнтів мережі</caption>
+                    <thead>
+                        <tr>
+                            <th class="center">ID</th>
+                            <th>ПІБ</th>
+                            <th>Телефон</th>
+                            <th>Електронна пошта</th>
+                            <th class="center">Бонусна картка</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customers-tbody">
+                        <!-- рядки створює customers.js з масиву customers -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Картки лояльності</h2>
+                <table class="data-table" id="cards-table">
+                    <caption>Видані бонусні картки</caption>
+                    <thead>
+                        <tr>
+                            <th class="center">№ картки</th>
+                            <th class="center">ID клієнта</th>
+                            <th>Власник</th>
+                            <th class="center">Бонуси</th>
+                            <th class="center">Дата видачі</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cards-tbody">
+                        <!-- рядки створює customers.js з масиву cards -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Правила програми лояльності</h2>
+                <ol>
+                    <li>Картку видаємо безкоштовно під час реєстрації клієнта.</li>
+                    <li>З кожного замовлення на картку повертається <b>10%</b> суми у вигляді бонусів.</li>
+                    <li>Один бонус дорівнює одній гривні знижки.</li>
+                </ol>
+                <p class="hint">Додаткові умови:</p>
+                <ol start="4">
+                    <li>Бонусами можна оплатити не більше половини чека.</li>
+                    <li>Бонуси, якими не користувалися 12 місяців, згорають.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Реєстрація нового клієнта</h2>
+                <form id="new-customer-form">
+                    <fieldset>
+                        <legend>Дані клієнта</legend>
+                        <div class="form-row">
+                            <label for="cust-name">ПІБ:</label>
+                            <input type="text" id="cust-name" required placeholder="Прізвище Ім'я">
+                        </div>
+                        <div class="form-row">
+                            <label for="cust-phone">Телефон:</label>
+                            <input type="tel" id="cust-phone" required placeholder="+380XXXXXXXXX">
+                        </div>
+                        <div class="form-row">
+                            <label for="cust-email">Email:</label>
+                            <input type="email" id="cust-email" required placeholder="name@example.com">
+                        </div>
+                        <div class="form-row">
+                            <input type="checkbox" id="cust-create-card" checked>
+                            <label for="cust-create-card">видати бонусну картку з 10 стартовими бонусами</label>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" id="btn-add-customer" class="btn">Зареєструвати клієнта</button>
+                        </div>
+                        <p id="customer-message" class="form-message"></p>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p><small>&copy; 2026 «Coffee Shop». Облік клієнтів.</small></p>
+        </footer>
+    </div>
+</body>
+</html>

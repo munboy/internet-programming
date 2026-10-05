@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Shop - Співробітники</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="baristas.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <img src="img/coffee_logo.png" alt="Логотип Coffee Shop" class="logo">
+            <div>
+                <h1>Співробітники мережі</h1>
+                <p class="tagline">Облік бариста та закріплення за філіалами</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="orders.html">Оформлення замовлень</a></li>
+                <li><a href="customers.html">Клієнти та картки</a></li>
+                <li><a href="baristas.html" class="active">Співробітники</a></li>
+                <li><a href="analytics.html">Аналітика</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <form id="filter-form" class="toolbar">
+                <label for="filter-shop">Філіал:</label>
+                <select id="filter-shop">
+                    <option value="all">Усі філіали</option>
+                    <option value="Центральний">Центральний</option>
+                    <option value="Кав'ярня на Подолі">Кав'ярня на Подолі</option>
+                    <option value="Студентський куточок">Студентський куточок</option>
+                </select>
+                <p class="counter" id="baristas-counter"></p>
+            </form>
+
+            <section>
+                <h2>Бариста мережі</h2>
+                <table class="data-table" id="baristas-table">
+                    <caption>Персонал на поточний тиждень. Натисніть на заголовок стовпця, щоб відсортувати.</caption>
+                    <thead>
+                        <tr>
+                            <th class="center sortable" data-field="id">ID</th>
+                            <th class="sortable" data-field="name">ПІБ</th>
+                            <th>Телефон</th>
+                            <th class="sortable" data-field="shop">Філіал</th>
+                            <th class="sortable" data-field="shift">Зміна</th>
+                            <th class="sortable" data-field="status">Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody id="baristas-tbody">
+                        <!-- рядки створює baristas.js з масиву baristas -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Новий співробітник</h2>
+                <form id="new-barista-form">
+                    <fieldset>
+                        <legend>Дані працівника</legend>
+                        <div class="form-row">
+                            <label for="barista-name">ПІБ:</label>
+                            <input type="text" id="barista-name" required placeholder="Прізвище Ім'я">
+                        </div>
+                        <div class="form-row">
+                            <label for="barista-phone">Телефон:</label>
+                            <input type="tel" id="barista-phone" required placeholder="+380XXXXXXXXX">
+                        </div>
+                        <div class="form-row">
+                            <label for="barista-shop">Філіал:</label>
+                            <select id="barista-shop">
+                                <option value="Центральний">Центральний</option>
+                                <option value="Кав'ярня на Подолі">Кав'ярня на Подолі</option>
+                                <option value="Студентський куточок">Студентський куточок</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="barista-shift">Зміна:</label>
+                            <select id="barista-shift">
+                                <option value="Ранкова (07:30-15:00)">Ранкова (07:30-15:00)</option>
+                                <option value="Денна (10:00-18:00)">Денна (10:00-18:00)</option>
+                                <option value="Вечірня (15:00-22:00)">Вечірня (15:00-22:00)</option>
+                                <option value="Повна (08:00-20:00)">Повна (08:00-20:00)</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" id="btn-add-barista" class="btn">Додати до штату</button>
+                        </div>
+                        <p id="barista-message" class="form-message"></p>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p><small>&copy; 2026 «Coffee Shop». Облік персоналу.</small></p>
+        </footer>
+    </div>
+</body>
+</html>

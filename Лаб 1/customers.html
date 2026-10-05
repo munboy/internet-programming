@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Shop - Клієнти та картки</title>
+</head>
+<body>
+    <header>
+        <div align="center">
+            <img src="img/coffee_logo.png" alt="Логотип Coffee Shop" width="80" height="80">
+            <h1>Клієнти та картки лояльності</h1>
+            <p><i>База постійних гостей і бонусна програма мережі</i></p>
+        </div>
+        <hr>
+        <nav align="center">
+            <a href="index.html">Головна</a> |
+            <a href="orders.html">Оформлення замовлень</a> |
+            <b><a href="customers.html">Клієнти та картки</a></b> |
+            <a href="baristas.html">Співробітники</a> |
+            <a href="analytics.html">Аналітика</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <section>
+            <form id="search-form">
+                <label for="customer-search"><b>Пошук клієнта:</b></label>
+                <input type="text" id="customer-search" placeholder="Ім'я, телефон або пошта" size="30">
+            </form>
+        </section>
+
+        <section>
+            <h2>Зареєстровані клієнти</h2>
+            <table border="1" cellpadding="6" cellspacing="0" width="100%" id="customers-table">
+                <caption><i>Список клієнтів мережі</i></caption>
+                <thead>
+                    <tr bgcolor="#f0f0f0">
+                        <th>ID</th>
+                        <th>ПІБ</th>
+                        <th>Телефон</th>
+                        <th>Електронна пошта</th>
+                        <th>Бонусна картка</th>
+                    </tr>
+                </thead>
+                <tbody id="customers-tbody">
+                    <tr>
+                        <td align="center">1</td>
+                        <td><b>Олександр Коваленко</b></td>
+                        <td>+380 (50) 111-22-33</td>
+                        <td>oleksandr.k@example.com</td>
+                        <td align="center"><font color="green">Активна (картка №1)</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center">2</td>
+                        <td><b>Марія Шевченко</b></td>
+                        <td>+380 (67) 222-33-44</td>
+                        <td>maria.sh@example.com</td>
+                        <td align="center"><font color="green">Активна (картка №2)</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center">3</td>
+                        <td><b>Дмитро Савченко</b></td>
+                        <td>+380 (63) 333-44-55</td>
+                        <td>d.savchenko@example.com</td>
+                        <td align="center"><font color="red">Відсутня</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center">4</td>
+                        <td><b>Анастасія Литвиненко</b></td>
+                        <td>+380 (99) 444-55-66</td>
+                        <td>nastia.lyt@example.com</td>
+                        <td align="center"><font color="green">Активна (картка №3)</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center">5</td>
+                        <td><b>Ігор Мороз</b></td>
+                        <td>+380 (93) 555-66-77</td>
+                        <td>igor.moroz@example.com</td>
+                        <td align="center"><font color="red">Відсутня</font></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Картки лояльності</h2>
+            <table border="1" cellpadding="6" cellspacing="0" width="100%" id="cards-table">
+                <caption><i>Видані бонусні картки</i></caption>
+                <thead>
+                    <tr bgcolor="#f0f0f0">
+                        <th>№ картки</th>
+                        <th>ID клієнта</th>
+                        <th>Власник</th>
+                        <th>Бонуси</th>
+                        <th>Дата видачі</th>
+                    </tr>
+                </thead>
+                <tbody id="cards-tbody">
+                    <tr>
+                        <td align="center">1</td>
+                        <td align="center">1</td>
+                        <td>Олександр Коваленко</td>
+                        <td align="center"><b>45</b></td>
+                        <td align="center">01.09.2025</td>
+                    </tr>
+                    <tr>
+                        <td align="center">2</td>
+                        <td align="center">2</td>
+                        <td>Марія Шевченко</td>
+                        <td align="center"><b>120</b></td>
+                        <td align="center">15.09.2025</td>
+                    </tr>
+                    <tr>
+                        <td align="center">3</td>
+                        <td align="center">4</td>
+                        <td>Анастасія Литвиненко</td>
+                        <td align="center"><b>80</b></td>
+                        <td align="center">20.10.2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Правила програми лояльності</h2>
+            <ol>
+                <li>Картку видаємо безкоштовно під час реєстрації клієнта.</li>
+                <li>З кожного замовлення на картку повертається <b>10%</b> суми у вигляді бонусів.</li>
+                <li>Один бонус дорівнює одній гривні знижки.</li>
+            </ol>
+            <p><i>Додаткові умови:</i></p>
+            <ol start="4">
+                <li>Бонусами можна оплатити не більше половини чека.</li>
+                <li>Бонуси, якими не користувалися 12 місяців, згорають.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Реєстрація нового клієнта</h2>
+            <form id="new-customer-form">
+                <table border="1" cellpadding="6" cellspacing="0">
+                    <tr>
+                        <td><label for="cust-name">ПІБ:</label></td>
+                        <td><input type="text" id="cust-name" required placeholder="Прізвище Ім'я" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cust-phone">Телефон:</label></td>
+                        <td><input type="tel" id="cust-phone" required placeholder="+380XXXXXXXXX" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cust-email">Email:</label></td>
+                        <td><input type="email" id="cust-email" required placeholder="name@example.com" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>Бонусна картка:</td>
+                        <td>
+                            <input type="checkbox" id="cust-create-card" checked>
+                            <label for="cust-create-card">видати картку з 10 стартовими бонусами</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="submit" id="btn-add-customer">Зареєструвати клієнта</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p align="center"><small>&copy; 2026 «Coffee Shop». Облік клієнтів.</small></p>
+    </footer>
+</body>
+</html>

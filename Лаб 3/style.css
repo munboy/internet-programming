@@ -1,0 +1,782 @@
+/* =========================================================
+   style.css - стилі сайту мережі кав'ярень «Coffee Shop»
+   Лабораторна робота №2: CSS та блочна верстка
+   ========================================================= */
+
+
+/* ---------- 1. Змінні: кольори та радіус заокруглення ---------- */
+:root {
+    --coffee-dark: #3d251c;
+    --coffee: #533529;
+    --coffee-medium: #734c3d;
+    --caramel: #8b5a2b;
+    --cream: #f7f4ee;
+    --cream-light: #faf6f0;
+    --line: #e2ded4;
+    --text: #333333;
+    --text-light: #776b5d;
+    --green: #2e7d32;
+    --red: #c93b2b;
+    --radius: 6px;
+}
+
+
+/* ---------- 2. Базові правила ---------- */
+
+/* ширина блоку враховує padding і border */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: var(--cream);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--caramel);
+}
+
+a:hover {
+    color: var(--coffee-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--coffee);
+    line-height: 1.3;
+}
+
+h2 {
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ecdcc9;
+    font-size: 21px;
+}
+
+h3 {
+    margin: 20px 0 8px;
+    color: var(--coffee-medium);
+    font-size: 17px;
+}
+
+h4 {
+    margin: 0 0 6px;
+    font-size: 15px;
+}
+
+h5 {
+    margin: 0 0 4px;
+    font-size: 14px;
+}
+
+s {
+    color: #999999;
+}
+
+
+/* ---------- 3. Каркас сторінки (блочна верстка) ---------- */
+
+/* головний контейнер по центру екрана */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    background-color: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* шапка: логотип і назва в один рядок (flexbox) */
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius);
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.tagline {
+    margin: 4px 0 0;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* навігація: список посилань, розкладений у рядок */
+.main-nav {
+    margin: 16px 0 8px;
+    background-color: var(--coffee);
+    border-radius: 4px;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+}
+
+.main-nav a {
+    display: block;
+    padding: 6px 14px;
+    color: #f7ede2;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.main-nav a:hover {
+    background-color: var(--coffee-medium);
+    color: #ffffff;
+}
+
+/* поточна сторінка */
+.main-nav a.active {
+    background-color: var(--coffee-dark);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* головна сторінка: дві колонки на float.
+   overflow: hidden скидає обтікання, як .bottom_div у методичці */
+.layout {
+    overflow: hidden;
+}
+
+.content {
+    float: left;
+    width: 66%;
+}
+
+.sidebar {
+    float: right;
+    width: 31%;
+    margin-top: 28px;
+}
+
+
+/* ---------- 4. Текстові блоки ---------- */
+blockquote {
+    position: relative;
+    margin: 16px 0 4px;
+    padding: 12px 20px 12px 44px;
+    background-color: var(--cream-light);
+    border-left: 4px solid var(--caramel);
+    color: #4a3b32;
+    font-style: italic;
+}
+
+/* велика лапка перед цитатою (псевдоелемент) */
+blockquote::before {
+    content: "\201C";
+    position: absolute;
+    left: 12px;
+    top: -6px;
+    color: var(--caramel);
+    font-family: Georgia, serif;
+    font-size: 48px;
+}
+
+.quote-author {
+    margin: 0 0 8px;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: normal;
+    text-align: right;
+}
+
+.status-ok {
+    color: var(--green);
+    font-weight: 600;
+}
+
+.status-off {
+    color: #888888;
+}
+
+.status-bad {
+    color: var(--red);
+}
+
+.hint {
+    margin: 4px 0;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+
+/* ---------- 5. Картки пропозицій (CSS Grid) ---------- */
+.offers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.offer-card {
+    padding: 14px 16px;
+    background-color: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.offer-card h3 {
+    margin-top: 0;
+}
+
+.offer-card p {
+    margin: 4px 0;
+}
+
+.price-new {
+    color: #b22222;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ---------- 6. Списки ---------- */
+
+/* два списки поруч */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+}
+
+ul, ol {
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+.list-square {
+    list-style-type: square;
+}
+
+.list-circle {
+    list-style-type: circle;
+}
+
+.list-roman {
+    list-style-type: upper-roman;
+}
+
+.list-letters {
+    list-style-type: lower-alpha;
+}
+
+dl dt {
+    margin-top: 8px;
+    color: var(--coffee);
+    font-weight: 600;
+}
+
+dl dd {
+    margin-left: 20px;
+    color: #555555;
+}
+
+
+/* ---------- 7. Новини: DIV-верстка за прикладом з методички ---------- */
+
+/* блок однієї новини (аналог .element_div) */
+.news-item {
+    margin-bottom: 12px;
+    padding: 14px 16px;
+    background-color: #f4efe8;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+/* заголовок новини (аналог .news_header_div) */
+.news-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+/* текст новини (аналог .news_info_div) */
+.news-text {
+    margin: 0;
+    color: #404040;
+}
+
+/* нижній рядок: дата зліва, джерело справа */
+.news-bottom {
+    overflow: hidden;
+    margin-top: 8px;
+    color: #888888;
+    font-size: 12px;
+}
+
+.news-time {
+    float: left;
+}
+
+.news-source {
+    float: right;
+}
+
+
+/* ---------- 8. Таблиці ---------- */
+.data-table {
+    width: 100%;
+    margin: 12px 0 20px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.data-table caption {
+    padding: 4px 0 8px;
+    color: var(--text-light);
+    font-style: italic;
+    text-align: left;
+}
+
+.data-table th,
+.data-table td {
+    padding: 8px 12px;
+    border: 1px solid #dcd7cd;
+}
+
+.data-table th {
+    background-color: var(--coffee);
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* заголовок, що об'єднує кілька стовпців (селектор атрибута) */
+.data-table th[colspan] {
+    text-align: center;
+}
+
+/* другий рядок дворівневої шапки */
+.data-table thead tr + tr th {
+    background-color: var(--coffee-medium);
+}
+
+/* "зебра" та підсвічування рядка під курсором */
+.data-table tbody tr:nth-child(even) {
+    background-color: #faf8f5;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f2eee7;
+}
+
+/* підсумкові рядки звітів. Селектор table.data-table має специфічність (0,2,3),
+   тому перемагає "зебру" та :hover зі специфічністю (0,2,2) */
+table.data-table tbody tr.subtotal {
+    background-color: #fff3cd;
+    font-weight: 600;
+}
+
+table.data-table tbody tr.cube-total {
+    background-color: #d1ecf1;
+}
+
+table.data-table tbody tr.grand-total {
+    background-color: #d4edda;
+    font-weight: 700;
+}
+
+.center {
+    text-align: center;
+}
+
+.num {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* для заголовків таблиці потрібна більша специфічність,
+   ніж у .data-table th (0,1,1), інакше вирівнювання не спрацює */
+.data-table .center {
+    text-align: center;
+}
+
+.data-table .num {
+    text-align: right;
+}
+
+/* не переносити телефони та години роботи */
+.nowrap {
+    white-space: nowrap;
+}
+
+
+/* ---------- 9. Форми ---------- */
+fieldset {
+    margin: 0 0 16px;
+    padding: 12px 16px 4px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+legend {
+    padding: 0 6px;
+    color: var(--coffee);
+    font-weight: 600;
+}
+
+/* рядок форми: підпис і поле поруч */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row > label:first-child {
+    width: 120px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+select {
+    padding: 6px 10px;
+    background-color: #ffffff;
+    border: 1px solid #c9c3b8;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 280px;
+}
+
+select {
+    min-width: 280px;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--caramel);
+    box-shadow: 0 0 4px rgba(139, 90, 43, 0.35);
+}
+
+/* панель пошуку / фільтра над таблицею */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0;
+    padding: 12px 16px;
+    background-color: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.toolbar label {
+    font-weight: 600;
+}
+
+.toolbar-note {
+    margin: 0 0 0 auto;
+    color: var(--text-light);
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+/* ---------- 10. Кнопки ---------- */
+.btn {
+    padding: 7px 16px;
+    background-color: var(--caramel);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #6b431e;
+}
+
+.btn-light {
+    background-color: #c8a27a;
+}
+
+.btn-light:hover {
+    background-color: #b08a62;
+}
+
+.btn-grey {
+    background-color: #888888;
+}
+
+.btn-grey:hover {
+    background-color: #666666;
+}
+
+.btn-remove {
+    padding: 3px 10px;
+    background-color: var(--red);
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background-color: #9e281b;
+}
+
+
+/* ---------- 11. Підсумок замовлення ---------- */
+.order-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: var(--cream-light);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.order-total p {
+    margin: 0;
+}
+
+/* сума до сплати (селектор за id) */
+#lbl-total {
+    color: #8b0000;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.order-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+
+/* ---------- 12. Карта та фрейм ---------- */
+.map-figure {
+    margin: 12px 0;
+    overflow-x: auto;
+    text-align: center;
+}
+
+.map-figure img {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+.map-figure figcaption {
+    margin-top: 6px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.frame {
+    display: block;
+    width: 100%;
+    height: 360px;
+    border: 1px solid #c9c3b8;
+    border-radius: 4px;
+}
+
+
+/* ---------- 13. Підвал ---------- */
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: #888888;
+    font-size: 13px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* ---------- 14. Адаптивність ---------- */
+
+/* планшет: колонки одна під одною */
+@media (max-width: 900px) {
+    .content,
+    .sidebar {
+        float: none;
+        width: auto;
+    }
+
+    .offers,
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* телефон */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        padding: 16px;
+        border-radius: 0;
+    }
+
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .form-row > label:first-child {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .data-table {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   Додатково для ЛР3: стани, якими керує JavaScript
+   ========================================================= */
+
+/* приховування блоку через classList */
+.hidden {
+    display: none;
+}
+
+/* годинник на головній сторінці */
+.clock {
+    margin: 6px 0 0;
+    color: var(--caramel);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* вечірня акція, коли вона діє (клас додає main.js) */
+.offer-card.promo-active {
+    background-color: #fff3cd;
+    border-color: #e0b84d;
+}
+
+.promo-state {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.promo-active .promo-state {
+    color: #b22222;
+    font-weight: 700;
+}
+
+/* заголовки, за якими можна сортувати */
+.data-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.data-table th.sortable:hover {
+    background-color: var(--caramel);
+}
+
+.data-table th.sort-asc::after {
+    content: " \25B2";
+    font-size: 11px;
+}
+
+.data-table th.sort-desc::after {
+    content: " \25BC";
+    font-size: 11px;
+}
+
+/* рядок-заглушка, коли таблиця порожня */
+.empty-row td {
+    color: #888888;
+    font-style: italic;
+    text-align: center;
+}
+
+/* підсвічування знайденого тексту */
+mark {
+    padding: 0 2px;
+    background-color: #ffe08a;
+    border-radius: 2px;
+}
+
+/* повідомлення під формами */
+.form-message {
+    min-height: 22px;
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+.form-message.success {
+    color: var(--green);
+}
+
+.form-message.error {
+    color: var(--red);
+}
+
+input.invalid {
+    border-color: var(--red);
+}
+
+.counter {
+    margin: 0 0 0 auto;
+    color: var(--text-light);
+    font-size: 14px;
+}

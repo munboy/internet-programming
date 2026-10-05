@@ -1,0 +1,17 @@
+# Visual Studio build artifacts
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store

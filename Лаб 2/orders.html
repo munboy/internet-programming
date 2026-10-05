@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Shop - Оформлення замовлень</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <img src="img/coffee_logo.png" alt="Логотип Coffee Shop" class="logo">
+            <div>
+                <h1>Оформлення та облік замовлень</h1>
+                <p class="tagline">Касовий модуль: формування чека, вибір напоїв та історія продажів</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="orders.html" class="active">Оформлення замовлень</a></li>
+                <li><a href="customers.html">Клієнти та картки</a></li>
+                <li><a href="baristas.html">Співробітники</a></li>
+                <li><a href="analytics.html">Аналітика</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section>
+                <h2>Новий чек</h2>
+                <form id="order-form">
+                    <fieldset>
+                        <legend>Дані замовлення</legend>
+                        <div class="form-row">
+                            <label for="cbCustomer">Клієнт:</label>
+                            <select id="cbCustomer" name="customer">
+                                <option value="0">-- Гість (без картки) --</option>
+                                <option value="1">Олександр Коваленко (картка: 45 бонусів)</option>
+                                <option value="2">Марія Шевченко (картка: 120 бонусів)</option>
+                                <option value="3">Дмитро Савченко (без картки)</option>
+                                <option value="4">Анастасія Литвиненко (картка: 80 бонусів)</option>
+                                <option value="5">Ігор Мороз (без картки)</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="cbBarista">Бариста:</label>
+                            <select id="cbBarista" name="barista">
+                                <option value="1">Андрій Мельник</option>
+                                <option value="2">Олена Бойко</option>
+                                <option value="3">Сергій Ткаченко</option>
+                                <option value="4">Юлія Кравчук</option>
+                                <option value="5">Богдан Лисенко</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="cbShop">Філіал:</label>
+                            <select id="cbShop" name="shop">
+                                <option value="1">Центральний</option>
+                                <option value="2">Кав'ярня на Подолі</option>
+                                <option value="3">Студентський куточок</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Додати напій до чека</legend>
+                        <div class="form-row">
+                            <label for="select-drink">Напій:</label>
+                            <select id="select-drink">
+                                <option value="35">Еспресо (35 грн)</option>
+                                <option value="40">Американо (40 грн)</option>
+                                <option value="55">Капучино (55 грн)</option>
+                                <option value="60">Лате (60 грн)</option>
+                                <option value="65">Флет вайт (65 грн)</option>
+                                <option value="70">Лавандовий раф (70 грн)</option>
+                                <option value="45">Круасан (45 грн)</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="input-qty">Кількість:</label>
+                            <input type="number" id="input-qty" value="1" min="1" max="50">
+                            <button type="button" id="btn-add-item" class="btn">+ Додати в чек</button>
+                        </div>
+                    </fieldset>
+
+                    <h3>Склад поточного чека</h3>
+                    <table class="data-table" id="order-items-table">
+                        <thead>
+                            <tr>
+                                <th>Напій</th>
+                                <th class="center">Кількість</th>
+                                <th class="num">Ціна, грн</th>
+                                <th class="num">Сума, грн</th>
+                                <th class="center">Дія</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-items-tbody">
+                            <tr>
+                                <td>Капучино</td>
+                                <td class="center">1</td>
+                                <td class="num">55.00</td>
+                                <td class="num">55.00</td>
+                                <td class="center"><button type="button" class="btn-remove">Видалити</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="order-summary">
+                        <div class="order-total">
+                            <p>До сплати: <span id="lbl-total">55.00 грн</span></p>
+                            <p id="bonus-info-label" class="hint">Гість без картки лояльності, бонуси не нараховуються.</p>
+                        </div>
+                        <div class="order-buttons">
+                            <button type="button" id="btn-calculate" class="btn btn-light">Порахувати</button>
+                            <button type="submit" id="btn-save-order" class="btn">Оформити покупку</button>
+                            <button type="reset" id="btn-reset-order" class="btn btn-grey">Скинути чек</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+                <h2>Останні чеки</h2>
+                <table class="data-table" id="recent-orders-table">
+                    <caption>Чеки за сьогодні (новіші зверху)</caption>
+                    <thead>
+                        <tr>
+                            <th class="center">№ чека</th>
+                            <th class="center">Час</th>
+                            <th>Філіал</th>
+                            <th>Бариста</th>
+                            <th>Клієнт</th>
+                            <th class="num">Сума, грн</th>
+                            <th class="center">Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-orders-tbody">
+                        <tr>
+                            <td class="center">103</td>
+                            <td class="center">10:05</td>
+                            <td>Студентський куточок</td>
+                            <td>Сергій Ткаченко</td>
+                            <td>Марія Шевченко</td>
+                            <td class="num">125.00</td>
+                            <td class="center"><span class="status-ok">Виконано</span></td>
+                        </tr>
+                        <tr>
+                            <td class="center">102</td>
+                            <td class="center">09:40</td>
+                            <td>Кав'ярня на Подолі</td>
+                            <td>Олена Бойко</td>
+                            <td>Гість</td>
+                            <td class="num">40.00</td>
+                            <td class="center"><span class="status-ok">Виконано</span></td>
+                        </tr>
+                        <tr>
+                            <td class="center">101</td>
+                            <td class="center">09:15</td>
+                            <td>Центральний</td>
+                            <td>Андрій Мельник</td>
+                            <td>Олександр Коваленко</td>
+                            <td class="num">90.00</td>
+                            <td class="center"><span class="status-ok">Виконано</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p><small>&copy; 2026 «Coffee Shop». Модуль оформлення замовлень.</small></p>
+        </footer>
+    </div>
+</body>
+</html>

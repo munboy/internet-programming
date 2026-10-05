@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Shop - Головна</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <!-- логотип відкриває зображення у повному розмірі -->
+            <a href="img/coffee_logo.png" target="_blank" title="Відкрити логотип у повному розмірі">
+                <img src="img/coffee_logo.png" alt="Логотип Coffee Shop" class="logo">
+            </a>
+            <div>
+                <h1>Мережа кав'ярень «Coffee Shop»</h1>
+                <p class="tagline">Свіжообсмажена кава, затишна атмосфера та привітні бариста у кожному філіалі</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Головна</a></li>
+                <li><a href="orders.html">Оформлення замовлень</a></li>
+                <li><a href="customers.html">Клієнти та картки</a></li>
+                <li><a href="baristas.html">Співробітники</a></li>
+                <li><a href="analytics.html">Аналітика</a></li>
+            </ul>
+        </nav>
+
+        <!-- дві колонки: основний вміст (float: left) і новини (float: right) -->
+        <div class="layout">
+            <main class="content">
+                <section>
+                    <h2>Про нашу мережу</h2>
+                    <p>
+                        До мережі <b>«Coffee Shop»</b> входять три кав'ярні в різних районах міста.
+                        Ми готуємо класичні та авторські напої із зерна власного обсмаження, а постійним гостям
+                        нараховуємо бонуси на картку лояльності. За рік наші бариста готують понад 10<sup>5</sup> чашок кави,
+                        а зал Центрального філіалу має площу 85 м<sup>2</sup>.
+                    </p>
+                    <p>
+                        Ця сторінка є головною для працівників мережі. Звідси можна перейти до оформлення замовлень,
+                        обліку клієнтів, персоналу та звітів. Більше про історію напою можна прочитати
+                        у <a href="https://uk.wikipedia.org/wiki/Кава" target="_blank">статті «Кава» у Вікіпедії</a>.
+                    </p>
+                    <p>
+                        Статус мережі: <span class="status-ok">усі філіали працюють у звичайному режимі</span>.
+                    </p>
+                    <blockquote>
+                        Кава для нас не просто напій, а коротка пауза серед щоденної метушні.
+                        Тому кожну чашку ми готуємо так, ніби вона перша за день.
+                    </blockquote>
+                    <h6 class="quote-author">Ірина Коваль, шеф-бариста мережі</h6>
+                </section>
+
+                <section>
+                    <h2>Пропозиції тижня</h2>
+                    <div class="offers">
+                        <article class="offer-card">
+                            <h3>Лавандовий раф</h3>
+                            <p><s>80 грн</s> <span class="price-new">70 грн</span></p>
+                            <p><small>Діє до <time datetime="2026-10-31">31.10.2026</time></small></p>
+                        </article>
+                        <article class="offer-card">
+                            <h3>Друга чашка -50%</h3>
+                            <p><i>Щодня</i> <u>після 18:00</u> у всіх філіалах.</p>
+                        </article>
+                        <article class="offer-card">
+                            <h3>Сніданок до 11:00</h3>
+                            <p><b>Круасан + американо</b> за <span class="price-new">75 грн</span> замість 85 грн.</p>
+                        </article>
+                    </div>
+                    <p class="hint">
+                        <small>Цікаво: молекула кофеїну має формулу C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>,
+                        а для екстракції еспресо ми використовуємо воду температурою 92-94 <sup>o</sup>C.</small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Меню та стандарти якості</h2>
+                    <div class="two-columns">
+                        <div>
+                            <h3>Кавові зерна</h3>
+                            <ul class="list-square">
+                                <li><b>Арабіка 100%</b>: м'який смак, фруктові нотки та легка кислинка.</li>
+                                <li><b>Бленд арабіка / робуста (80/20)</b>: насичений еспресо зі щільною пінкою.</li>
+                                <li><b>Моносорти</b>: Ефіопія, Колумбія, Бразилія (оновлюємо щомісяця).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Для гостей</h3>
+                            <ul class="list-circle">
+                                <li>безкоштовний Wi-Fi та розетки біля кожного столика;</li>
+                                <li>знижка 5 грн, якщо кава з собою у власну чашку;</li>
+                                <li>рослинне молоко (вівсяне, мигдальне) без доплати.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Як ми готуємо капучино</h3>
+                            <ol>
+                                <li>Мелемо 18 г зерна безпосередньо перед приготуванням.</li>
+                                <li>Темперуємо каву із зусиллям близько 15 кг.</li>
+                                <li>Екстрагуємо еспресо 25-28 секунд під тиском 9 бар.</li>
+                                <li>Готуємо молоко:
+                                    <ol class="list-letters">
+                                        <li>наливаємо холодне молоко в пітчер;</li>
+                                        <li>збиваємо парою до 60-65 <sup>o</sup>C;</li>
+                                        <li>вливаємо в еспресо, малюючи візерунок.</li>
+                                    </ol>
+                                </li>
+                                <li>Подаємо гостю разом зі склянкою води.</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h3>Розділи меню</h3>
+                            <ol class="list-roman">
+                                <li>Класичні напої (еспресо, допіо, американо)</li>
+                                <li>Кава з молоком (капучино, лате, флет вайт)</li>
+                                <li>Авторські напої (лавандовий раф, мокачино)</li>
+                                <li>Випічка та десерти (круасани, чізкейк)</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <h3>Словник бариста</h3>
+                    <dl>
+                        <dt>Еспресо</dt>
+                        <dd>Концентрований напій об'ємом 30 мл, основа більшості кавових напоїв.</dd>
+                        <dt>Американо</dt>
+                        <dd>Еспресо, розбавлений гарячою водою.</dd>
+                        <dt>Капучино</dt>
+                        <dd>Еспресо, гаряче молоко та молочна піна приблизно в рівних частинах.</dd>
+                        <dt>Лате</dt>
+                        <dd>Ніжний напій з великою кількістю молока і тонким шаром піни.</dd>
+                    </dl>
+                </section>
+
+                <section id="branches">
+                    <h2>Філіали мережі</h2>
+                    <table class="data-table">
+                        <caption>Таблиця 1. Адреси та графік роботи філіалів</caption>
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="center">№</th>
+                                <th rowspan="2">Філіал</th>
+                                <th colspan="2">Контакти</th>
+                                <th colspan="2">Графік роботи</th>
+                            </tr>
+                            <tr>
+                                <th>Адреса</th>
+                                <th>Телефон</th>
+                                <th class="center">Пн-Пт</th>
+                                <th class="center">Сб-Нд</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">1</td>
+                                <td><b>Центральний</b></td>
+                                <td>вул. Хрещатик, 15</td>
+                                <td class="nowrap">+380 (44) 111-22-33</td>
+                                <td class="center nowrap">07:30-22:00</td>
+                                <td class="center nowrap">08:30-23:00</td>
+                            </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td><b>Кав'ярня на Подолі</b></td>
+                                <td>Контрактова площа, 4</td>
+                                <td class="nowrap">+380 (44) 222-33-44</td>
+                                <td class="center nowrap">08:00-21:30</td>
+                                <td class="center nowrap" rowspan="2">09:00-22:00</td>
+                            </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td><b>Студентський куточок</b></td>
+                                <td>просп. Науки, 28</td>
+                                <td class="nowrap">+380 (44) 333-44-55</td>
+                                <td class="center nowrap">08:00-20:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>Карта мережі</h2>
+                    <figure class="map-figure">
+                        <img src="img/coffee_map.png" alt="Схема розташування філіалів" usemap="#shops-map" width="600" height="200">
+                        <map name="shops-map">
+                            <area shape="rect" coords="10,10,190,190" alt="Центральний філіал"
+                                  title="Центральний: вул. Хрещатик, 15"
+                                  href="https://www.google.com/maps/search/?api=1&amp;query=Київ+вул.+Хрещатик+15" target="_blank">
+                            <area shape="circle" coords="300,100,75" alt="Кав'ярня на Подолі"
+                                  title="Кав'ярня на Подолі: Контрактова площа, 4"
+                                  href="https://www.google.com/maps/search/?api=1&amp;query=Київ+Контрактова+площа+4" target="_blank">
+                            <area shape="poly" coords="420,25,580,25,560,175,420,175" alt="Студентський куточок"
+                                  title="Студентський куточок: просп. Науки, 28"
+                                  href="https://www.google.com/maps/search/?api=1&amp;query=Київ+проспект+Науки+28" target="_blank">
+                            <area shape="default" alt="Усі філіали" title="Таблиця з адресами всіх філіалів" href="#branches">
+                        </map>
+                        <figcaption>
+                            Наведіть курсор на філіал, щоб побачити адресу. Клік відкриває його на Google Maps,
+                            клік поза філіалами переходить до таблиці філіалів.
+                        </figcaption>
+                    </figure>
+                </section>
+
+                <section>
+                    <h2>Швидке замовлення</h2>
+                    <p>Касовий модуль можна відкрити прямо тут, не залишаючи головну сторінку:</p>
+                    <iframe src="orders.html" class="frame" title="Модуль оформлення замовлень">
+                        Ваш браузер не підтримує фрейми. <a href="orders.html">Відкрити сторінку замовлень</a>.
+                    </iframe>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <h2>Новини мережі</h2>
+
+                <article class="news-item">
+                    <h4 class="news-title">Відкрили літню терасу на Подолі</h4>
+                    <p class="news-text">На Контрактовій площі запрацювала тераса на 20 місць. Вона буде відкрита до перших холодів.</p>
+                    <div class="news-bottom">
+                        <div class="news-time"><time datetime="2026-09-12">12.09.2026</time></div>
+                        <div class="news-source">адміністрація мережі</div>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <h4 class="news-title">Нові моносорти з Ефіопії</h4>
+                    <p class="news-text">
+                        У продажу з'явилося зерно Yirgacheffe з нотами бергамоту та жасмину.
+                        Спробувати його можна як еспресо або фільтр-каву.
+                    </p>
+                    <div class="news-bottom">
+                        <div class="news-time"><time datetime="2026-09-25">25.09.2026</time></div>
+                        <div class="news-source">відділ закупівель</div>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <h4 class="news-title">Майстер-клас з латте-арту</h4>
+                    <p class="news-text">
+                        Щосуботи о 12:00 у Центральному філіалі проводимо безкоштовний майстер-клас для гостей.
+                        Кількість місць обмежена.
+                    </p>
+                    <div class="news-bottom">
+                        <div class="news-time"><time datetime="2026-10-01">01.10.2026</time></div>
+                        <div class="news-source">школа бариста</div>
+                    </div>
+                </article>
+            </aside>
+        </div>
+
+        <footer class="site-footer">
+            <div>
+                <h4>Контакти</h4>
+                <p>
+                    Гаряча лінія: +380 (44) 100-20-30<br>
+                    Пошта: <a href="mailto:info@coffeeshop.example">info@coffeeshop.example</a>
+                </p>
+            </div>
+            <div>
+                <h5>Навчальний проєкт</h5>
+                <p><small>&copy; 2026 «Coffee Shop». Лабораторні роботи з дисципліни «Інтернет-програмування».</small></p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
